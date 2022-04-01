@@ -1,0 +1,21 @@
+{
+  "name": "crud-empresas",
+  "version": "1.0.0",
+  "description": "backend de sucursales empresas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Luis Ortiz",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.8",
+    "nodemon": "^2.0.15"
+  }
+}
