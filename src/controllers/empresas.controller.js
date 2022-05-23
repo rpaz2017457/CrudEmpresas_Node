@@ -2,6 +2,15 @@ const Empresas = require('../models/empresas.model');
 const bcrypt = require('bcrypt-nodejs');
 const jwt = require('../services/jwt')
 
+
+function obtenerEmpresas(req, res) {
+    Empresas.find((err, EnpresaObtenida) => {
+        if (err) return res.send({ mensaje: "Error:" + err })
+
+        return res.send({ empresa: EnpresaObtenida })
+    });
+}
+
 function Login(req, res) {
     var parametros = req.body;
     Empresas.findOne({ email: parametros.email }, (err, empresaEncontrada) => {
@@ -41,6 +50,7 @@ function agregarEmpresa(req, res) {
         empresasModel.nombre = parametros.nombre;
         empresasModel.email = parametros.email;
         empresasModel.password = parametros.password;
+        empresasModel.usuario = parametros.usuario;
         empresasModel.rol = 'Empresa';
         empresasModel.telefono = parametros.telefono
         empresasModel.direccion = parametros.direccion
@@ -143,7 +153,7 @@ function usuarioInicial() {
 }
 
 module.exports = {
-
+    obtenerEmpresas,
     agregarEmpresa,
     Login,
     editarEmpresa,
